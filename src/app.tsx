@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import Login from './pages/login/Login';
 import Header from './components/header/Header';
 import './app.css';
+import CategoryComponent from './pages/category/CategoryComponent';
+import ProductComponent from './pages/product/ProductComponent';
 
 
 const AppRoutes = () => {
@@ -12,6 +14,8 @@ const AppRoutes = () => {
             <Routes>
               <Route index element={<Home/>} />
               <Route path="login" element={<Login/>}/>
+              <Route path="category/:id" element={<CategoryComponent/>}/>
+              <Route path="product/:id" element={<ProductComponent/>}/>
             </Routes>
         </Router>
       )

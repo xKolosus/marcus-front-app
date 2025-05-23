@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
-
 import './carrousel.css';
 import { Category } from 'types';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 interface CarouselProps {
   width?: string;
@@ -19,6 +20,11 @@ const Carousel: React.FC<CarouselProps> = ({
   const [currentIndex, setCurrentIndex] = useState(0);
   const trackRef = useRef<HTMLDivElement>(null);
   const totalItems = categories.length;
+  const navigate = useNavigate();
+
+  const goTo = (categoryId: string) => {
+    navigate("/category/" + categoryId);
+  }
 
   const next = () => {
     setCurrentIndex((prevIndex) =>
@@ -45,11 +51,17 @@ const Carousel: React.FC<CarouselProps> = ({
                 categories.map((category) => (
                   <div key={category.id}
                       className='carrousel-item'>
-                    <img
-                    src={`${category.name}.jpg`}
-                    alt={category.name}
-                    className={`carrousel-image ${!category.enabled ? 'disabled' : ''}`}
-                    />
+                    <Link to={'/category/' + category.id}>
+                      <img
+                      src={
+                            ['Bikes', 'Skateboards', 'Skis'].includes(category.name)
+                              ? `${category.name}.jpg`
+                              : 'Nocontent.jpg'
+                          }
+                      alt={category.name}
+                      className={`carrousel-image ${!category.enabled ? 'disabled' : ''}`}
+                      />
+                    </Link>
                   </div>
                 ))
               }

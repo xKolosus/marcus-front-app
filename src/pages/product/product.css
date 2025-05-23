@@ -1,0 +1,114 @@
+
+.container {
+  margin: 1rem auto auto auto;
+      max-width: 1200px;
+      padding: 0 1rem;
+}
+
+.back-link {
+  padding-bottom: 1rem;
+  color: #1e90ff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.back-link:hover {
+  color: #0066cc;
+}
+
+    .product-detail {
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      min-height: calc(100vh - 8rem);
+    }
+    .product-detail-image {
+      padding: 1.5rem;
+    }
+    .product-detail-image img {
+      width: 100%;
+      height: 50vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+    .product-detail-info {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .product-detail-info h1 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+    .product-detail-info p {
+      font-size: 1.1rem;
+      color: #666;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+    .price {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #2ecc71;
+      margin-bottom: 1rem;
+    }
+    .availability {
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+    .availability-true {
+      color: #2ecc71;
+      font-weight: bold;
+    }
+    .availability-false {
+      color: #be0b1a;
+      font-weight: bold;
+    }
+    .buttons {
+      display: flex;
+      gap: 1rem;
+    }
+    .buttons button {
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 4px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .add-to-cart {
+      background-color: #28a745;
+      color: #fff;
+    }
+    .add-to-cart:hover {
+      background-color: #218838;
+    }
+    .add-to-wishlist {
+      background-color: #e0e0e0;
+      color: #333;
+    }
+    .add-to-wishlist:hover {
+      background-color: #ccc;
+    }
+    footer {
+      background-color: #333;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+    @media (min-width: 1024px) {
+      .product-detail {
+        flex-direction: row;
+      }
+      .product-detail-image,
+      .product-info {
+        width: 50%;
+      }
+      .product-detail-image img {
+        height: 100%;
+      }
+    }

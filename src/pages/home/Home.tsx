@@ -1,36 +1,30 @@
-import { Category } from "types";
 import "./home.css";
 import Carousel from "../../components/carrousel/Carrousel";
-import CardsInfo from "../../components/cardinfo/CardsInfo";
+import CardsInfo from "../../components/card/CardsInfo";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, AppDispatch } from "store";
+import { useGetCategoriesQuery } from "../../services/categoryApi";
+import { useEffect } from "react";
+import { setLastFetchedCategories } from "../../features/category/categorySlice";
 
 const Home : React.FC = () => {
 
+  const dispatch = useDispatch<AppDispatch>();
+  const categories = useSelector((state: RootState) => state.categories.lastFetchedCategories);
+  const initialized = useSelector(
+      (state: RootState) => state.categories.initialized
+  );
 
-const categories : Category[] = [{
-  id : "1",
-  name : "Bikes",
-  enabled : true,
-  subCategories : [{
-    id : "1", description : "bbb", categoryId : "123123"
-}]
-},
-{
-  id : "2",
-  name : "Skate",
-  enabled : false,
-  subCategories : [{
-    id : "2", description : "bbb", categoryId : "123123"
-}]
-},
-{
-  id : "3",
-  name : "Surf",
-  enabled : false,
-  subCategories : [{
-    id : "3", description : "bbb", categoryId : "123123"
-}]
-}
-]
+  const { data, error, isLoading } = useGetCategoriesQuery(undefined, {
+    skip: initialized,
+  });
+
+  useEffect(() => {
+    if (data && !initialized) {
+      dispatch(setLastFetchedCategories(data));
+    }
+  }, [data, initialized, dispatch]);
+
 
   return (
     <div className="main-container">
