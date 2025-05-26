@@ -1,0 +1,71 @@
+.purchase-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 320px;
+            transition: transform 0.3s ease;
+        }
+
+        .purchase-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .purchase-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .purchase-content {
+            padding: 20px;
+        }
+
+        .purchase-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .purchase-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .button-price-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        
+
+        .purchase-price {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #333;
+            white-space: nowrap;
+        }
+
+        
+        @media (max-width: 600px) {
+            .purchase-card {
+                max-width: 100%;
+            }
+
+            .purchase-title {
+                font-size: 1.3rem;
+            }
+
+            .purchase-description {
+                font-size: 0.85rem;
+            }
+
+
+            .purchase-price {
+                font-size: 1rem;
+            }
+        }

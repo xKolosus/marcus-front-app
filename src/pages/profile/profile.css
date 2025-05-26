@@ -1,0 +1,27 @@
+.profile-container {
+  margin-left: 10vw;
+  margin-right: 10vw;
+  padding: 0.1rem;
+  gap: 1rem;
+  justify-content: center;  
+}
+
+.profile-container span {
+  font-weight: normal;
+}
+
+.purchase-title {
+  font-style: oblique;
+    font-weight: 300;
+    grid-column: span 4;
+}
+
+.purchase-container {
+  margin-left: 10vw;
+    margin-right: 10vw;
+    padding: 0.1rem;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1rem;
+    justify-content: center; 
+}

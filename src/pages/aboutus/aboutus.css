@@ -1,0 +1,51 @@
+.about-us-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    width: 65vw;
+    margin: 0 auto;
+}
+
+.about-us-left {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.about-us-left-second {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.about-us-right {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+.about-us-right-first {
+    grid-column: 1;
+    grid-row: 2;
+    display: flex;
+}
+
+
+.about-us-left, .about-us-right {
+    padding: 20px;
+}
+
+.about-us-left h1, .about-us-right h1 {
+    margin-bottom: 15px;
+}
+
+.about-us-left pre, .about-us-right pre {
+    white-space: pre-wrap; 
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.grid-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
