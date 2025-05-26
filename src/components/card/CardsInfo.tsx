@@ -17,7 +17,7 @@ const CardsInfo : React.FC = ()  => {
          <Card
             header='Need help?'
             description='Feel free to contact us' 
-            href='/contact-us'
+            href='/contact'
             extraDescription='Send us your
             request, and we will answer
             as soon as possible'

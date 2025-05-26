@@ -26,9 +26,23 @@ export interface Category {
     subCategories : SubCategory[]
 }
 
-export interface Purchase {
-    productIds : string[]
+export interface User{
+    name: string,
+    surname: string,
+    email: string,
+    password: string
 }
+
+export interface UserLogin{
+    email : string,
+    password : string
+}
+
+export interface Token {
+    accessToken : string,
+    refreshToken : string
+}
+
 
 export interface Page {
     pageSize: number,
@@ -63,4 +77,24 @@ export interface ProductSearch extends PageSearch {
 export interface ProductPage {
     content : Product[],
     page : Page
+}
+
+export interface PurchaseSearch extends PageSearch {
+
+}
+
+export interface PurchaseRequest {
+    productIds : string[]
+}
+
+export interface Purchase {
+    id : string,
+    userId: string,
+    products: Product[],
+    totalAmount: Price
+}
+
+export interface PurchasePage {
+    content : Purchase[],
+    page: Page
 }

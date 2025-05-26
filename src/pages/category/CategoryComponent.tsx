@@ -12,6 +12,7 @@ import { setLastFetchedProducts } from '../../features/product/productSlice';
 
 const CategoryComponent : React.FC = ({}) => {
   const dispatch = useDispatch<AppDispatch>();
+  const [page, setPage] = useState(0);
   const { id } = useParams<{ id: string }>();
   const initialized = useSelector(
       (state: RootState) => state.products.initialized
@@ -33,7 +34,7 @@ const CategoryComponent : React.FC = ({}) => {
     
       const productSearch : ProductSearch = {
         categoryId: category.id,
-        page: 0,
+        page: page,
         pageSize: 8,
         order : null,
         orderBy : null,
@@ -73,16 +74,22 @@ useEffect(() => {
           </div>
           )
    }
-      
 
     if (data && data.content.length > 0) {
+      const handlePageChange = (newPage: number) => {
+        if (data && newPage >= 0 && newPage < data.page.totalPages) {
+          setPage(newPage);
+        }
+      };
+
+
         return (
             <div className="category-container">
                 <h1>{title}</h1>
                 {data.content.map((product) => (
-                  <ProductCard product={product} key={product.id} />
+                  <ProductCard product={product} key={product.id} availableButton={true}/>
                 ))}
-            <Pagination page={data.page.pageNumber} totalPages={data.page.totalPages}></Pagination>
+            <Pagination page={data.page.pageNumber} totalPages={data.page.totalPages} onPageChange={handlePageChange}></Pagination>
             </div>
         );
       } else {
