@@ -41,6 +41,15 @@
             gap: 10px;
         }
 
+        .buy-button-disabled {
+            filter: grayscale(100%) brightness(0.7);
+        }
+
+        .buy-button-disabled:hover {
+            filter: grayscale(100%) brightness(0.7);
+            cursor: not-allowed !important;
+        }
+
         .buy-button {
             border: none;
             flex: 1;
@@ -56,6 +65,7 @@
 
         .buy-button:hover {
             background-color: #218838;
+            cursor: pointer;
         }
 
         .product-price {

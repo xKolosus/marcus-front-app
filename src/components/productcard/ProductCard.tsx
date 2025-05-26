@@ -2,6 +2,8 @@ import { Product } from "types";
 
 import "./productcard.css";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "store";
 
 interface ProductProp {
     product : Product;
@@ -9,6 +11,11 @@ interface ProductProp {
 }
 
 const ProductCard : React.FC<ProductProp> = ({ product, availableButton }) => {
+
+    const isAuthenticated = useSelector(
+        (state: RootState) => state.auth.isAuthenticated
+        );
+
 
     return (
         <div className="product-card">
@@ -28,7 +35,7 @@ const ProductCard : React.FC<ProductProp> = ({ product, availableButton }) => {
             {
                 availableButton ? (
                     <div className="button-price-container">
-                        <button className="buy-button">Add to cart</button>
+                        <button className={`buy-button ${!isAuthenticated ? 'buy-button-disabled' : ''}`}>Add to cart</button>
                         <span className="product-price">{product.price.amount.toString()} {product.price.currency}</span>
                     </div>
                 ) : (
